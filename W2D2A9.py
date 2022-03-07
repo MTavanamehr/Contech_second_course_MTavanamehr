@@ -18,7 +18,7 @@ PetalWidth real, Species varchar(20));"""
 cursor.execute(sqlCreateTable)
 postgresConnection.commit()
 
-# insert all DataFrame information to table
+# insert all DataFrame information to table (it is worked for small table)
 stmt= "INSERT into "+name_table+" (SepalLength, SepalWidth, PetalLength, PetalWidth, Species) values(%s,%s,%s,%s,%s)"
 tuples = [tuple(x) for x in df.to_numpy()] 
 cursor.executemany(stmt,tuples)
